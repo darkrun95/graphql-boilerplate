@@ -1,7 +1,12 @@
 from django.db import models
 
-# Create your models here.
 class Actor(models.Model):
+	"""
+	Model: Actor
+
+	Field names:
+	name: Actor name
+	"""
 	name = models.CharField(max_length=200)
 
 	def __str__(self):
@@ -11,6 +16,14 @@ class Actor(models.Model):
 		ordering = ('name', )
 
 class Movie(models.Model):
+	"""
+	Model: Actor
+
+	Field names:
+	title: Movie name
+	actors: List of actors associated with the movie
+	year: Year of movie
+	"""
 	title = models.CharField(max_length=200)
 	actors = models.ManyToManyField(Actor)
 	year = models.IntegerField()
